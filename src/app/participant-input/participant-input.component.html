@@ -1,0 +1,12 @@
+<div>
+  <input [(ngModel)]="participantName" placeholder="Enter participant name">
+  <button (click)="addParticipant()">Add Participant</button>
+</div>
+<div>
+  <button (click)="generatePairings()">Generate Pairings</button>
+</div>
+<div>
+  <ul>
+  <li *ngFor="let participant of participants">{{ participant }}</li>
+  </ul>
+</div>

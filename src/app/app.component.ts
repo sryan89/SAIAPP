@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SAIAPP';
+  pairings: [string, string][] = [];
+  // changePairings(generatedPairings: [string, string][]) {
+  //   this.pairings = generatedPairings
+  // }
 }
