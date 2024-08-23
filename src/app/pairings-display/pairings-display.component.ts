@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PairingsService } from '../pairings.service';
 
 @Component({
@@ -6,10 +6,8 @@ import { PairingsService } from '../pairings.service';
   templateUrl: './pairings-display.component.html',
   styleUrls: ['./pairings-display.component.scss']
 })
-export class PairingsDisplayComponent {
-  //pairings$ = this.pairingsService.pairings$
+export class PairingsDisplayComponent implements OnInit {
   @Input() pairings: [string, string][] = [];
-
 
   constructor(private pairingsService: PairingsService) { }
 
@@ -21,12 +19,9 @@ export class PairingsDisplayComponent {
   ngOnInit(): void {
     this.getPairings();
   }
-}
 
-  // ngOnChanges(changes: SimpleChanges) {
-  // if (changes['pairings']) {
-  //   console.log('Pairings changed:', changes['pairings'].currentValue);
-  //   // Add any additional logic to handle changes to the pairings input property
-  // }
-  // }
-//}
+  clearPairings() {
+    this.pairingsService.clearPairings();
+    this.getPairings();
+  }
+}
